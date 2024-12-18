@@ -1,83 +1,103 @@
-// components/Payments.tsx
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
 const benefits = [
   {
     id: 1,
     title: 'FAST & SECURE',
-    description: '',
-    icon: '/assets/secure.svg', 
+    description:
+      'Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta rehendit in voluptate velit.',
+    icon: '/assets/secure.svg',
   },
   {
     id: 2,
-    title: 'FREE SIGNUP',
-    description: '',
-    icon: '/assets/signup.svg', // Replace with your icon path
+    title: 'FREE SIGN UP',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta rehendit in voluptate velit.',
+    icon: '/assets/signup.svg',
   },
   {
     id: 3,
     title: 'SCALE YOUR BUSINESS',
-    description: 'Our support team is available around the clock to assist you.',
-    icon: '/assets/scale.svg', // Replace with your icon path
+    description:
+      'Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta rehendit in voluptate velit.',
+    icon: '/assets/scale.svg',
   },
   {
     id: 4,
     title: 'QUICK & EASY SETUP',
-    description: '',
-    icon: '/assets/quick.svg', 
+    description:
+      'Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta rehendit in voluptate velit.',
+    icon: '/assets/quick.svg',
   },
   {
     id: 5,
-    title: 'RECCURRING PAYMENT',
-    description: '',
-    icon: '/assets/recurring.svg', 
+    title: 'RECURRING PAYMENTS',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor incididunt ut labore eta rehendit in voluptate velit.',
+    icon: '/assets/recurring.svg',
   },
 ];
 
 const Payments: React.FC = () => {
   return (
-    <section className="bg-white py-20 px-4">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-white py-20 px-4 md:px-8 lg:px-16">
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Title */}
         <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeInUp}
-                  transition={{ duration: 0.5 }}
-                  className="container mx-auto px-4 text-center"
-                >
-        <h2 className="text-7xl font-bold text-gray-800 mb-8">Why Choose PaymentShop?</h2>
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Why Choose PaymentShop?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur de elit, sed do tempor
+            incididunt ut labore eta rehendit in voluptate velit.
+          </p>
         </motion.div>
-        <p className="text-lg text-gray-600 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit consectetur amet accusantium omnis.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10 pt-5">
+
+        {/* Benefits Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mt-12">
           {benefits.map((benefit) => (
-            <div key={benefit.id} className="flex flex-col items-center">
-              <div className="flex items-center mb-2">
-                <div className="relative w-8 h-8 mr-2">
-                  <Image
-                    src={benefit.icon}
-                    alt={benefit.title}
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800">{benefit.title}</h3>
+            <div
+              key={benefit.id}
+              className="flex items-start space-x-4 text-left"
+            >
+              {/* Icon */}
+              <div className="w-12 h-12 relative flex-shrink-0">
+                <Image
+                  src={benefit.icon}
+                  alt={benefit.title}
+                  layout="fill"
+                  objectFit="contain"
+                />
               </div>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, accusantium quisquam corrupti aliquid inventore autem quasi iste vel asperiores nihil?</p>
+
+              {/* Title and Description */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </section>  
+    </section>
   );
 };
 
 export default Payments;
-
-
